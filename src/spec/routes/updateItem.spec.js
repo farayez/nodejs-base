@@ -1,8 +1,8 @@
-const db = require('../../src/persistence');
-const updateItem = require('../../src/routes/updateItem');
+const db = require('../../persistence');
+const updateItem = require('../../routes/updateItem');
 const ITEM = { id: 12345 };
 
-jest.mock('../../src/persistence', () => ({
+jest.mock('../../persistence', () => ({
     getItem: jest.fn(),
     updateItem: jest.fn(),
 }));

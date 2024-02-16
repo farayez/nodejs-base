@@ -1,8 +1,8 @@
-const db = require('../../src/persistence');
-const deleteItem = require('../../src/routes/deleteItem');
+const db = require('../../persistence');
+const deleteItem = require('../../routes/deleteItem');
 const ITEM = { id: 12345 };
 
-jest.mock('../../src/persistence', () => ({
+jest.mock('../../persistence', () => ({
     removeItem: jest.fn(),
     getItem: jest.fn(),
 }));
