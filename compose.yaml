@@ -4,14 +4,15 @@ services:
       context: .
       target: dev
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
       POSTGRES_HOST: db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/db-password
       POSTGRES_DB: example
     ports:
       - 3000:3000
-      - 9229:9229
+      - 3001:3001
+      - 9229:9229 # inspect port
     depends_on:
       db:
         condition: service_healthy
@@ -22,6 +23,8 @@ services:
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
       - ./.env:/app/.env
+      - ./storage:/app/storage
+      - ./config:/app/config
   db:
     image: postgres
     restart: always
