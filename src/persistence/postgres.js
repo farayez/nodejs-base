@@ -1,6 +1,8 @@
-const waitPort = require('wait-port');
-const fs = require('fs');
-const { Client } = require('pg');
+import waitPort from 'wait-port';
+import fs from 'fs';
+import pg from 'pg';
+
+const { Client } = pg;
 
 const {
     POSTGRES_HOST: HOST,
@@ -104,7 +106,7 @@ async function removeItem(id) {
     });
 }
   
-module.exports = {
+export default {
   init,
   teardown,
   getItems,
