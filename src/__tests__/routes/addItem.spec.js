@@ -1,15 +1,15 @@
-const db = require('../../persistence');
-const addItem = require('../../routes/addItem');
+import { jest } from '@jest/globals';
 const ITEM = { id: 12345 };
-const { v4: uuid } = require('uuid');
 
 jest.mock('uuid', () => ({ v4: jest.fn() }));
 
-jest.mock('../../persistence', () => ({
-    removeItem: jest.fn(),
-    storeItem: jest.fn(),
-    getItem: jest.fn(),
+jest.unstable_mockModule('../../persistence', () => ({
+    default: { storeItem: jest.fn() }
 }));
+
+const { default: db } = await import('../../persistence');
+const { default: addItem } = await import('../../routes/addItem.js');
+const { v4: uuid } = await import('uuid');
 
 test('it stores item correctly', async () => {
     const id = 'something-not-a-uuid';

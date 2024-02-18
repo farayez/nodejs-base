@@ -1,15 +1,17 @@
-const db = require('../../persistence');
-const getItems = require('../../routes/getItems');
+import { jest } from '@jest/globals';
+
 const ITEMS = [{ id: 12345 }];
 
-jest.mock('../../persistence', () => ({
-    getItems: jest.fn(),
+jest.unstable_mockModule('../../persistence', () => ({
+    default: { getItems: jest.fn(() => Promise.resolve(ITEMS)) }
 }));
+
+const { default: db } = await import('../../persistence');
+const { default: getItems } = await import('../../routes/getItems.js');
 
 test('it gets items correctly', async () => {
     const req = {};
     const res = { send: jest.fn() };
-    db.getItems.mockReturnValue(Promise.resolve(ITEMS));
 
     await getItems(req, res);
 

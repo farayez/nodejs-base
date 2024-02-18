@@ -1,11 +1,15 @@
-const db = require('../../persistence');
-const deleteItem = require('../../routes/deleteItem');
+import { jest } from '@jest/globals';
 const ITEM = { id: 12345 };
 
-jest.mock('../../persistence', () => ({
-    removeItem: jest.fn(),
-    getItem: jest.fn(),
+jest.unstable_mockModule('../../persistence', () => ({
+    default: {
+        removeItem: jest.fn(),
+        getItem: jest.fn(),
+    }
 }));
+
+const { default: db } = await import('../../persistence');
+const { default: deleteItem } = await import('../../routes/deleteItem.js');
 
 test('it removes item correctly', async () => {
     const req = { params: { id: 12345 } };
