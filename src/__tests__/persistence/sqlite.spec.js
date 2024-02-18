@@ -1,5 +1,5 @@
-const db = require('../../persistence/sqlite');
-const fs = require('fs');
+import db from '../../persistence/sqlite.js';
+import fs from 'fs';
 const location = process.env.SQLITE_DB_LOCATION || '/tmp/todo.db';
 
 const ITEM = {

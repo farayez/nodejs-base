@@ -1,4 +1,5 @@
-const fizz_buzz = require('./index').default;
+// const fizz_buzz = require('./index').default;
+import { default as fizz_buzz } from './index.js';
 
 describe('FizzBuzz', () => {
   test('[3] should result in "fizz"', () => {
