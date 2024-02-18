@@ -19,4 +19,9 @@ export default function addRoutes(app) {
     app.post('/items', addItem);
     app.put('/items/:id', updateItem);
     app.delete('/items/:id', deleteItem);
+
+    app.use((err, req, res, next) => {
+        console.log('error:', err);
+        res.status(err.status || 500).json({ error: err.message });
+    });
 }
