@@ -5,6 +5,7 @@ import addRoutes from './utils/apiRoutes.js';
 import setupMorgan from '#config/setupMorgan.js';
 import { API_PORT, AUTH0_BASE_URL } from '#config/index.js';
 import db from './persistence/index.js';
+import 'express-async-errors';
 
 const app = express();
 

@@ -2,6 +2,7 @@
  * Controllers (route handlers).
  */
 import getAppHealth from '../controllers/utils/health-check.js';
+import getError from '../controllers/utils/error-test.js';
 import validateToken from '../controllers/utils/validate-token.js';
 import getItems from '../routes/getItems.js';
 import addItem from '../routes/addItem.js';
@@ -12,6 +13,7 @@ import checkJwt from './auth.js';
 
 export default function addRoutes(app) {
     app.get('/api/health-check', getAppHealth);
+    app.get('/api/error', getError);
     app.get('/api/shows', checkJwt, validateToken);
     app.get('/items', getItems);
     app.post('/items', addItem);
