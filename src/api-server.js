@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import addRoutes from './utils/apiRoutes.js';
-import setupMorgan from '#config/setupMorgan.js';
+import setupMorgan from './utils/morganSetupRoutine.js';
 import { API_PORT, AUTH0_BASE_URL } from '#config/index.js';
 import db from './persistence/index.js';
 import 'express-async-errors';
