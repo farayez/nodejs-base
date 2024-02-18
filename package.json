@@ -7,8 +7,8 @@
     "scripts": {
         "prettify": "prettier -l --write \"**/*.js\"",
         "test:basic": "NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --config config/jest.config.js",
-        "test": "npm run test:basic -- --coverage --maxWorkers=10",
-        "test:watch": "npm run test:basic -- --coverage --watchAll",
+        "test:coverage": "npm run test:basic -- --coverage --maxWorkers=10",
+        "test:watch": "npm run test:basic -- --watchAll",
         "dev": "nodemon --inspect=0.0.0.0:9229 -L src/api-server.js"
     },
     "dependencies": {
@@ -42,6 +42,10 @@
         "nodemon": "^3.0.1",
         "sequelize-cli": "^6.6.2",
         "supertest": "^6.3.4"
+    },
+    "imports": {
+        "#storage/*": "./storage/*",
+        "#config/*": "./config/*"
     },
     "babel": {
         "env": {

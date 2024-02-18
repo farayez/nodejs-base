@@ -1,6 +1,6 @@
 import { expressjwt } from 'express-jwt';
 import jwksRsa from 'jwks-rsa';
-import { AUTH0_ISSUER_BASE_URL, AUTH0_AUDIENCE } from '../../config/index.js';
+import { AUTH0_ISSUER_BASE_URL, AUTH0_AUDIENCE } from '#config/index.js';
 
 export default expressjwt({
   secret: jwksRsa.expressJwtSecret({
