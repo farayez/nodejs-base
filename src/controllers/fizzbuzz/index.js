@@ -1,19 +1,19 @@
 function fizz_buzz(numbers) {
-  let result = [];
+    let result = [];
 
-  for (let number of numbers) {
-    if (number % 15 === 0) {
-      result.push('fizzbuzz');
-    } else if (number % 3 === 0) {
-      result.push('fizz');
-    } else if (number % 5 === 0) {
-      result.push('buzz');
-    } else {
-      result.push(number);
+    for (let number of numbers) {
+        if (number % 15 === 0) {
+            result.push('fizzbuzz');
+        } else if (number % 3 === 0) {
+            result.push('fizz');
+        } else if (number % 5 === 0) {
+            result.push('buzz');
+        } else {
+            result.push(number);
+        }
     }
-  }
 
-  return result.join(', ');
+    return result.join(', ');
 }
 
 export default fizz_buzz;

@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 
 if (process.env.NODE_ENV == 'test') {
-  dotenv.config({ path: './.env.testing' });
+    dotenv.config({ path: './.env.testing' });
 } else {
-  dotenv.config({ path: './.env' });
+    dotenv.config({ path: './.env' });
 }
 
 /** Application */
@@ -29,14 +29,18 @@ export const DB_PASSWORD = process.env.DB_PASSWORD;
 export const DB_DATABASE = process.env.DB_DATABASE;
 
 if (process.env.NODE_ENV != 'test') {
-  if (!AUTH0_BASE_URL) {
-    throw new Error('Please make sure that the file .env is in place and populated');
-  }
-  if (!AUTH0_ISSUER_BASE_URL) {
-    throw new Error('AUTH0_ISSUER_BASE_URL is not set');
-  }
-  if (!AUTH0_AUDIENCE) {
-    console.log('AUTH0_AUDIENCE not set in .env. Shutting down API server.');
-    process.exit(1);
-  }
+    if (!AUTH0_BASE_URL) {
+        throw new Error(
+            'Please make sure that the file .env is in place and populated',
+        );
+    }
+    if (!AUTH0_ISSUER_BASE_URL) {
+        throw new Error('AUTH0_ISSUER_BASE_URL is not set');
+    }
+    if (!AUTH0_AUDIENCE) {
+        console.log(
+            'AUTH0_AUDIENCE not set in .env. Shutting down API server.',
+        );
+        process.exit(1);
+    }
 }

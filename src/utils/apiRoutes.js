@@ -11,10 +11,10 @@ import deleteItem from '../routes/deleteItem.js';
 import checkJwt from './auth.js';
 
 export default function addRoutes(app) {
-  app.get('/api/health-check', getAppHealth);
-  app.get('/api/shows', checkJwt, validateToken);
-  app.get('/items', getItems);
-  app.post('/items', addItem);
-  app.put('/items/:id', updateItem);
-  app.delete('/items/:id', deleteItem);
+    app.get('/api/health-check', getAppHealth);
+    app.get('/api/shows', checkJwt, validateToken);
+    app.get('/items', getItems);
+    app.post('/items', addItem);
+    app.put('/items/:id', updateItem);
+    app.delete('/items/:id', deleteItem);
 }
