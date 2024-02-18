@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import morgan from 'morgan';
 import helmet from 'helmet';
 import addRoutes from './utils/apiRoutes.js';
 import setupMorgan from '#config/setupMorgan.js';
@@ -17,8 +16,35 @@ setupMorgan(app);
 addRoutes(app);
 
 if (process.env.NODE_ENV != 'test') {
-  const server = app.listen(API_PORT, () => console.log(`API Server listening on port ${API_PORT}`));
-  process.on('SIGINT', () => server.close());
+  let server;
+
+  db.init().then(() => {
+    server = app.listen(API_PORT, () => console.log(`API Server listening on port ${API_PORT}`));
+  }).catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+  function gracefulShutdown(signal) {
+    console.log(`${signal} received. Shutting down gracefully...`);
+
+    server.close(() => {
+      console.log('Server closed.');
+      db.teardown().catch(() => { });
+      console.log('DB closed')
+      process.exit(0);
+    });
+
+    // Force close the server after 5 seconds
+    setTimeout(() => {
+      console.error('Could not close connections in time, forcefully shutting down');
+      process.exit(1);
+    }, 5000);
+  }
+
+  process.on('SIGINT', gracefulShutdown);
+  process.on('SIGTERM', gracefulShutdown);
+  process.on('SIGUSR2', gracefulShutdown);
 }
 
 export default app;
