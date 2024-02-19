@@ -19,6 +19,7 @@ services:
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
       - ./.env:/app/.env
+      - ./.sequelizerc:/app/.sequelizerc
       - ./storage:/app/storage
       - ./config:/app/config
   db:

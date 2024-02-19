@@ -56,3 +56,12 @@ Created using guidelines from https://docs.docker.com/language/nodejs/
     ```
     kubectl delete -f docker-node-kubernetes.yaml
     ```
+
+
+## Running Migrations
+[Sequelize Docs](https://sequelize.org/docs/v6/other-topics/migrations/#creating-the-first-model-and-migration)
+npx sequelize model:generate --name Test --attributes firstName:string,lastName:string,email:string
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo
+npx sequelize-cli db:migrate:undo:all
+npx sequelize-cli db:migrate:undo:all --to XXXXXXXXXXXXXX-create-posts.js

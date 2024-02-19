@@ -9,7 +9,9 @@
         "test:basic": "NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --config config/jest.config.js",
         "test:coverage": "npm run test:basic -- --coverage --maxWorkers=10",
         "test:watch": "npm run test:basic -- --watchAll",
-        "dev": "nodemon --inspect=0.0.0.0:9229 -L src/api-server.js"
+        "dev": "nodemon --inspect=0.0.0.0:9229 -L src/api-server.js",
+        "migrate:generate": "./node_modules/.bin/sequelize migration:create --name=$npm_config_name",
+        "model:generate": "npx sequelize-cli model:generate --name=$npm_config_name --attributes=$npm_config_attributes"
     },
     "dependencies": {
         "@auth0/nextjs-auth0": "^3.5.0",
