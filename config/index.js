@@ -12,6 +12,7 @@ export const NODE_ENV = process.env.NODE_ENV;
 export const APP_NAME = process.env.APP_NAME;
 export const APP_ENV = process.env.APP_ENV;
 export const API_PORT = process.env.API_PORT;
+export const APP_ROOT_DIRECTORY = process.env.APP_ROOT_DIRECTORY;
 
 /** Auth0 */
 export const AUTH0_SECRET = process.env.AUTH0_SECRET;

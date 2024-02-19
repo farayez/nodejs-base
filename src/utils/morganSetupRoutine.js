@@ -1,14 +1,14 @@
 import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
-import { NODE_ENV } from '#config/index.js';
+import { NODE_ENV, APP_ROOT_DIRECTORY } from '#config/index.js';
 
 export default (app) => {
     if (NODE_ENV == 'development') {
         app.use(morgan('dev'));
     }
 
-    const logsDirectory = import.meta.dirname + '/../../storage/logs';
+    const logsDirectory = APP_ROOT_DIRECTORY + '/storage/logs';
 
     if (!fs.existsSync(logsDirectory)) {
         fs.mkdirSync(logsDirectory, { recursive: true });

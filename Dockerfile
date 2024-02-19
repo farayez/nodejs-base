@@ -4,6 +4,7 @@ ARG NODE_VERSION=21.6.2
 
 FROM node:${NODE_VERSION}-alpine as base
 WORKDIR /app
+ENV APP_ROOT_DIRECTORY=/app
 EXPOSE 3000
 
 FROM base as dev
