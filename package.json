@@ -10,8 +10,13 @@
         "test:coverage": "npm run test:basic -- --coverage --maxWorkers=10",
         "test:watch": "npm run test:basic -- --watchAll",
         "dev": "nodemon --inspect=0.0.0.0:9229 -L src/api-server.js",
+        "model:generate": "npx sequelize-cli model:generate --name=$npm_config_name --attributes=$npm_config_attributes",
         "migrate:generate": "./node_modules/.bin/sequelize migration:create --name=$npm_config_name",
-        "model:generate": "npx sequelize-cli model:generate --name=$npm_config_name --attributes=$npm_config_attributes"
+        "migrate": "npx sequelize-cli db:migrate",
+        "migrate:undo": "npx sequelize-cli db:migrate:undo",
+        "seed:generate": "npx sequelize-cli seed:generate --name=$npm_config_name",
+        "seed": "npx sequelize-cli db:seed:all",
+        "seed:undo": "npx sequelize-cli db:seed:undo"
     },
     "dependencies": {
         "@auth0/nextjs-auth0": "^3.5.0",
