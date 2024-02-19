@@ -23,10 +23,15 @@ export const AUTH0_AUDIENCE = process.env.AUTH0_AUDIENCE;
 export const AUTH0_SCOPE = process.env.AUTH0_SCOPE;
 
 /** Database */
+export const DB_ENGINE = process.env.DB_ENGINE;
 export const DB_HOST = process.env.DB_HOST;
+export const DB_HOST_FILE = undefined;
 export const DB_USERNAME = process.env.DB_USERNAME;
+export const DB_USERNAME_FILE = process.env.DB_USERNAM_FILEE;
 export const DB_PASSWORD = process.env.DB_PASSWORD;
+export const DB_PASSWORD_FILE = undefined;
 export const DB_DATABASE = process.env.DB_DATABASE;
+export const DB_DATABASE_FILE = undefined;
 
 if (process.env.NODE_ENV != 'test') {
     if (!AUTH0_BASE_URL) {

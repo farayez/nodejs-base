@@ -1,19 +1,18 @@
 import waitPort from 'wait-port';
 import fs from 'fs';
 import pg from 'pg';
+import {
+    DB_HOST as HOST,
+    DB_HOST_FILE as HOST_FILE,
+    DB_USERNAME as USER,
+    DB_USERNAME_FILE as USER_FILE,
+    DB_PASSWORD as PASSWORD,
+    DB_PASSWORD_FILE as PASSWORD_FILE,
+    DB_DATABASE as DB,
+    DB_DATABASE_FILE as DB_FILE,
+} from '#config/index.js';
 
 const { Client } = pg;
-
-const {
-    POSTGRES_HOST: HOST,
-    POSTGRES_HOST_FILE: HOST_FILE,
-    POSTGRES_USER: USER,
-    POSTGRES_USER_FILE: USER_FILE,
-    POSTGRES_PASSWORD: PASSWORD,
-    POSTGRES_PASSWORD_FILE: PASSWORD_FILE,
-    POSTGRES_DB: DB,
-    POSTGRES_DB_FILE: DB_FILE,
-} = process.env;
 
 let client;
 

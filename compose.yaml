@@ -5,10 +5,6 @@ services:
       target: dev
     environment:
       NODE_ENV: development
-      POSTGRES_HOST: db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD_FILE: /run/secrets/db-password
-      POSTGRES_DB: example
     ports:
       - 3000:3000
       - 3001:3001
