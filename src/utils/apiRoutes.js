@@ -9,6 +9,8 @@ import addItem from '../routes/addItem.js';
 import updateItem from '../routes/updateItem.js';
 import deleteItem from '../routes/deleteItem.js';
 
+import taskItems from '#controllers/demos/taskItems/index.js';
+
 import checkJwt from './auth.js';
 
 export default function addRoutes(app) {
@@ -19,6 +21,11 @@ export default function addRoutes(app) {
     app.post('/api/items', addItem);
     app.put('/api/items/:id', updateItem);
     app.delete('/api/items/:id', deleteItem);
+
+    app.get('/api/task-items', taskItems.getTaskItems);
+    app.post('/api/task-items', taskItems.addTaskItem);
+    app.put('/api/task-items/:id', taskItems.updateTaskItem);
+    app.delete('/api/task-items/:id', taskItems.deleteTaskItem);
 
     app.use((err, req, res, next) => {
         console.log('error:', err);
