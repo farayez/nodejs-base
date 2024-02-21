@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ES6",
+        "baseUrl": "./",
+        "paths": {
+            "#persistence/*": ["./src/persistence/*"],
+            "#controllers/*": ["./src/controllers/*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}
