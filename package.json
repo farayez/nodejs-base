@@ -55,6 +55,7 @@
     "imports": {
         "#storage/*": "./storage/*",
         "#controllers/*": "./src/controllers/*",
+        "#models/*": "./src/models/*",
         "#persistence/*": "./src/persistence/*",
         "#config/*": "./config/*"
     },

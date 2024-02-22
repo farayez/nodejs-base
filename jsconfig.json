@@ -5,7 +5,8 @@
         "baseUrl": "./",
         "paths": {
             "#persistence/*": ["./src/persistence/*"],
-            "#controllers/*": ["./src/controllers/*"]
+            "#controllers/*": ["./src/controllers/*"],
+            "#models/*": ["./src/models/*"]
         }
     },
     "exclude": ["node_modules"]
