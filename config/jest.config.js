@@ -10,6 +10,7 @@ const config = {
     restoreMocks: true,
     transform: {},
     coverageDirectory: 'storage/coverage',
+    setupFilesAfterEnv: ['<rootDir>/src/utils/tests/setupJest.js'],
 };
 
 export default config;
