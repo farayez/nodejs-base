@@ -1,32 +1,11 @@
-'use strict';
-
 import fs from 'fs';
 import path from 'path';
-import Sequelize from 'sequelize';
-import process from 'process';
+import { APP_MODEL_DIRECTORY } from '#config/index.js';
 
-const basename = path.basename(import.meta.filename);
-const dirname = import.meta.dirname + '/definitions';
+const basename = 'index.js';
+const dirname = APP_MODEL_DIRECTORY;
 
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-
-import databaseConfig from '#config/database-config.js';
-const env = process.env.NODE_ENV || 'development';
-const config = databaseConfig[env];
 const db = {};
-
-let sequelize;
-if (config.use_env_variable) {
-    sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-    sequelize = new Sequelize(
-        config.database,
-        config.username,
-        config.password,
-        config,
-    );
-}
 
 fs.readdirSync(dirname)
     .filter((file) => {
@@ -37,12 +16,10 @@ fs.readdirSync(dirname)
             file.indexOf('.test.js') === -1
         );
     })
-    .forEach((file) => {
-        const model = require(path.join(dirname, file))(
-            sequelize,
-            Sequelize.DataTypes,
-        );
-        db[model.name] = model;
+    .forEach(function (file) {
+        import(path.join(dirname, file)).then((model) => {
+            db[model.default.name] = model.default;
+        });
     });
 
 Object.keys(db).forEach((modelName) => {
@@ -50,8 +27,5 @@ Object.keys(db).forEach((modelName) => {
         db[modelName].associate(db);
     }
 });
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
 export default db;
