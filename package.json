@@ -1,7 +1,7 @@
 {
     "name": "nodejs-base",
     "version": "1.0.0",
-    "exports": "./src/api-server.js",
+    "exports": "./src/app.js",
     "license": "MIT",
     "type": "module",
     "scripts": {
@@ -59,7 +59,8 @@
         "#models": "./src/models/index.js",
         "#utils/*": "./src/utils/*",
         "#persistence/*": "./src/persistence/*",
-        "#config/*": "./config/*"
+        "#config/*": "./config/*",
+        "#/*": "./src/*"
     },
     "babel": {
         "env": {
