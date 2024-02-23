@@ -1,6 +1,6 @@
 /** @type {import('jest').Config} */
 const config = {
-    rootDir: '../',
+    rootDir: '../src/',
     testRegex: '((\\.|/)(test|spec))\\.[jt]sx?$',
     testEnvironment: 'jest-environment-node',
     // verbose: true,
@@ -10,7 +10,7 @@ const config = {
     restoreMocks: true,
     transform: {},
     coverageDirectory: 'storage/coverage',
-    setupFilesAfterEnv: ['<rootDir>/src/utils/tests/setupJest.js'],
+    setupFilesAfterEnv: ['<rootDir>/utils/tests/setupJest.js'],
 };
 
 export default config;
