@@ -4,9 +4,12 @@
         "target": "ES6",
         "baseUrl": "./",
         "paths": {
+            "#/*": ["./src/*"],
+            "#config/*": ["./config/*"],
+            "#utils/*": ["./src/utils/*"],
             "#persistence/*": ["./src/persistence/*"],
-            "#controllers/*": ["./src/controllers/*"],
-            "#models/*": ["./src/models/*"]
+            "#models/*": ["./src/models/*"],
+            "#controllers/*": ["./src/controllers/*"]
         }
     },
     "exclude": ["node_modules"]

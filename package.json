@@ -54,13 +54,13 @@
         "supertest": "^6.3.4"
     },
     "imports": {
+        "#/*": "./src/*",
         "#storage/*": "./storage/*",
-        "#controllers/*": "./src/controllers/*",
-        "#models": "./src/models/index.js",
+        "#config/*": "./config/*",
         "#utils/*": "./src/utils/*",
         "#persistence/*": "./src/persistence/*",
-        "#config/*": "./config/*",
-        "#/*": "./src/*"
+        "#models": "./src/models/index.js",
+        "#controllers/*": "./src/controllers/*"
     },
     "babel": {
         "env": {
