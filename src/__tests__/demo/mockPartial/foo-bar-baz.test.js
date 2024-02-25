@@ -18,7 +18,7 @@ const {
     mockableFoo,
     bar,
     mockableBar,
-} = await import("./foo-bar-baz.js");
+} = await import('./foo-bar-baz.js');
 
 test('should do a partial mock', () => {
     const defaultExportResult = defaultExport();

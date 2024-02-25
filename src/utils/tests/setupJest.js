@@ -1,11 +1,13 @@
+// import { jest } from '@jest/globals';
 import { default as matchers } from 'jest-extended';
 expect.extend(matchers);
 
-export default () => {
-    afterEach(() => {
-        // jest.useRealTimers();
-    });
-};
+afterEach(() => {
+    // jest.resetAllMocks(); // Reset mock implementation
+    // jest.clearAllMocks(); // Reset mock usage
+    // jest.restoreAllMocks(); // Restore original implementation of mock
+    // jest.useRealTimers();
+});
 
 expect.extend({
     toContainObject(received, argument) {
