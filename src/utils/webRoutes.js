@@ -1,5 +1,3 @@
-import checkJwt from './auth.js';
-
 export default function addRoutes(app) {
     app.get('/auth', function (req, res) {
         res.render('pages/auth');

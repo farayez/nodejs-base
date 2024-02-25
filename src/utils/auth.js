@@ -2,7 +2,7 @@ import { expressjwt } from 'express-jwt';
 import jwksRsa from 'jwks-rsa';
 import { AUTH0_ISSUER_BASE_URL, AUTH0_AUDIENCE } from '#config/index.js';
 
-export default expressjwt({
+export const checkJwt = expressjwt({
     secret: jwksRsa.expressJwtSecret({
         cache: true,
         rateLimit: true,

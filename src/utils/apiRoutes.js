@@ -11,7 +11,7 @@ import deleteItem from '../routes/deleteItem.js';
 
 import taskItems from '#controllers/demos/taskItems/index.js';
 
-import checkJwt from './auth.js';
+import { checkJwt } from './auth.js';
 
 export default function addRoutes(app) {
     app.get('/api/health-check', getAppHealth);
