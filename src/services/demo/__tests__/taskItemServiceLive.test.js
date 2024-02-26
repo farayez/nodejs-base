@@ -5,7 +5,7 @@ import {
     addItem,
     udpateItem,
     deleteItem,
-} from './taskItemsCRUD.js';
+} from '../taskItemService.js';
 
 describe('it performs CRUD operations on model successfully', () => {
     beforeEach(function () {
