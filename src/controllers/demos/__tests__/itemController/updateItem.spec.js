@@ -1,15 +1,17 @@
 import { jest } from '@jest/globals';
 const ITEM = { id: 12345 };
 
-jest.unstable_mockModule('../../persistence', () => ({
+jest.unstable_mockModule('#persistence/index.js', () => ({
     default: {
         getItem: jest.fn(),
         updateItem: jest.fn(),
-    }
+    },
 }));
 
-const { default: db } = await import('../../persistence');
-const { default: updateItem } = await import('../../routes/updateItem.js');
+const { default: db } = await import('#persistence/index.js');
+const { default: updateItem } = await import(
+    '../../itemController/updateItem.js'
+);
 
 test('it updates items correctly', async () => {
     const req = {

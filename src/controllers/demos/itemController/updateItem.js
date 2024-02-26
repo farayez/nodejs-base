@@ -1,4 +1,4 @@
-import db from '../persistence/index.js';
+import db from '#persistence/index.js';
 
 export default async (req, res) => {
     await db.updateItem(req.params.id, {

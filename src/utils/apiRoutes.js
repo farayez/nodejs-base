@@ -4,10 +4,10 @@
 import getAppHealth from '../controllers/utils/healthCheck.js';
 import getError from '../controllers/utils/errorTest.js';
 import validateToken from '../controllers/utils/validateToken.js';
-import getItems from '../routes/getItems.js';
-import addItem from '../routes/addItem.js';
-import updateItem from '../routes/updateItem.js';
-import deleteItem from '../routes/deleteItem.js';
+import getItems from '#controllers/demos/itemController/getItems.js';
+import addItem from '#controllers/demos/itemController/addItem.js';
+import updateItem from '#controllers/demos/itemController/updateItem.js';
+import deleteItem from '#controllers/demos/itemController/deleteItem.js';
 
 import taskItems from '#controllers/demos/taskItemController.js';
 

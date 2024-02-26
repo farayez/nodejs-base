@@ -3,12 +3,12 @@ const ITEM = { id: 12345 };
 
 jest.mock('uuid', () => ({ v4: jest.fn() }));
 
-jest.unstable_mockModule('../../persistence', () => ({
-    default: { storeItem: jest.fn() }
+jest.unstable_mockModule('#persistence/index.js', () => ({
+    default: { storeItem: jest.fn() },
 }));
 
-const { default: db } = await import('../../persistence');
-const { default: addItem } = await import('../../routes/addItem.js');
+const { default: db } = await import('#persistence/index.js');
+const { default: addItem } = await import('../../itemController/addItem.js');
 const { v4: uuid } = await import('uuid');
 
 test('it stores item correctly', async () => {
