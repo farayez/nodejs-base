@@ -1,11 +1,5 @@
 import { syncDatabase } from '#utils/tests/setupTestDatabase.js';
-import {
-    getItem,
-    getItems,
-    addItem,
-    udpateItem,
-    deleteItem,
-} from '../taskItemService.js';
+const { default: taskItemService } = await import('../taskItemService.js');
 
 describe('it performs CRUD operations on model successfully', () => {
     beforeEach(function () {
@@ -31,23 +25,23 @@ describe('it performs CRUD operations on model successfully', () => {
     };
 
     it('performs Create and Read operation', async function () {
-        let result = await addItem(itemSample1);
+        let result = await taskItemService.addItem(itemSample1);
         expect(result).toMatchObject(itemSample1);
 
-        result = await getItem(1);
+        result = await taskItemService.getItem(1);
         expect(result).toMatchObject(itemSample1);
 
-        result = await getItems();
+        result = await taskItemService.getItems();
         expect(result).toHaveLength(1);
         expect(result).toContainObject(itemSample1);
     });
 
     it('performs Create and Update operation', async function () {
-        let result = await addItem(itemSample1);
-        result = await getItems();
+        let result = await taskItemService.addItem(itemSample1);
+        result = await taskItemService.getItems();
         expect(result).toHaveLength(1);
 
-        result = await udpateItem(1, {
+        result = await taskItemService.updateItem(1, {
             name: itemSample2.name,
             longDescription: itemSample2.longDescription,
             completed: itemSample2.completed,
@@ -55,16 +49,16 @@ describe('it performs CRUD operations on model successfully', () => {
 
         expect(result).toMatchObject(itemSample2);
 
-        result = await getItem(1);
+        result = await taskItemService.getItem(1);
         expect(result).toMatchObject(itemSample2);
     });
 
     it('performs Create and Delete operation', async function () {
-        let result = await addItem(itemSample1);
-        expect(await getItems()).toHaveLength(1);
+        let result = await taskItemService.addItem(itemSample1);
+        expect(await taskItemService.getItems()).toHaveLength(1);
 
-        result = await deleteItem(1);
+        result = await taskItemService.deleteItem(1);
         expect(result).toEqual(true);
-        expect(await getItems()).toHaveLength(0);
+        expect(await taskItemService.getItems()).toHaveLength(0);
     });
 });

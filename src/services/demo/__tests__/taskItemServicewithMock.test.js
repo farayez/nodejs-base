@@ -27,9 +27,7 @@ mockTaskItem(modelInstance);
 
 // Import modules after setting up mocks
 const { default: modelsMock } = await import('#models');
-const { getItem, getItems, addItem, udpateItem, deleteItem } = await import(
-    '../taskItemService.js'
-);
+const { default: taskItemService } = await import('../taskItemService.js');
 
 describe('it performs CRUD operations on mock model successfully', () => {
     beforeEach(() => {
@@ -45,14 +43,14 @@ describe('it performs CRUD operations on mock model successfully', () => {
             modelInstance,
         );
 
-        let result = await getItem(2);
+        let result = await taskItemService.getItem(2);
         expect(modelsMock.TaskItem.findByPk.mock.calls.length).toBe(1);
         expect(modelsMock.TaskItem.findByPk.mock.calls[0][0]).toEqual(2);
         expect(result).toMatchObject(itemSample1);
     });
 
     it('performs Read all operation', async function () {
-        let result = await getItems();
+        let result = await taskItemService.getItems();
         expect(modelsMock.TaskItem.findAll.mock.calls.length).toBe(1);
         expect(result).toContainObject(itemSample1);
     });
@@ -60,7 +58,7 @@ describe('it performs CRUD operations on mock model successfully', () => {
     it('performs Create operation', async function () {
         jest.spyOn(modelInstance, 'save').mockReturnValue(modelInstance);
 
-        let result = await addItem(itemSample1);
+        let result = await taskItemService.addItem(itemSample1);
         expect(modelsMock.TaskItem.build.mock.calls.length).toBe(1);
         expect(modelsMock.TaskItem.build.mock.calls[0][0]).toMatchObject({
             name: itemSample1.name,
@@ -81,7 +79,7 @@ describe('it performs CRUD operations on mock model successfully', () => {
         );
         jest.spyOn(modelInstance, 'save').mockReturnValue(itemSample2);
 
-        let result = await udpateItem(2, {
+        let result = await taskItemService.updateItem(2, {
             name: itemSample2.name,
             longDescription: itemSample2.longDescription,
             completed: itemSample2.completed,
@@ -95,12 +93,14 @@ describe('it performs CRUD operations on mock model successfully', () => {
         expect(result).toMatchObject(itemSample2);
     });
 
+    it('updateItem works properly during partial update', async function () {});
+
     it('performs Delete operation', async function () {
         jest.spyOn(modelsMock.TaskItem, 'findByPk').mockReturnValue(
             modelInstance,
         );
 
-        let result = await deleteItem(2);
+        let result = await taskItemService.deleteItem(2);
         expect(modelsMock.TaskItem.findByPk.mock.calls.length).toBe(1);
         expect(modelsMock.TaskItem.findByPk.mock.calls[0][0]).toEqual(2);
         expect(modelsMock.TaskItem.findByPk).toHaveBeenCalledBefore(

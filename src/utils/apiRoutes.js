@@ -9,7 +9,7 @@ import addItem from '../routes/addItem.js';
 import updateItem from '../routes/updateItem.js';
 import deleteItem from '../routes/deleteItem.js';
 
-import taskItems from '#controllers/demos/taskItems/index.js';
+import taskItems from '#controllers/demos/taskItemController.js';
 
 import { checkJwt } from './auth.js';
 

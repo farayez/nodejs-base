@@ -9,7 +9,8 @@
             "#utils/*": ["./src/utils/*"],
             "#persistence/*": ["./src/persistence/*"],
             "#models/*": ["./src/models/*"],
-            "#controllers/*": ["./src/controllers/*"]
+            "#controllers/*": ["./src/controllers/*"],
+            "#services/*": ["./src/services/*"]
         }
     },
     "exclude": ["node_modules"]
