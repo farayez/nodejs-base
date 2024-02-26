@@ -16,7 +16,7 @@ import { checkJwt } from './auth.js';
 export default function addRoutes(app) {
     app.get('/api/health-check', getAppHealth);
     app.get('/api/error', getError);
-    app.get('/api/shows', checkJwt, validateToken);
+    app.get('/api/validate-token', checkJwt, validateToken);
     app.get('/api/items', getItems);
     app.post('/api/items', addItem);
     app.put('/api/items/:id', updateItem);
