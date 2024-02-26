@@ -60,6 +60,7 @@
         "#utils/*": "./src/utils/*",
         "#persistence/*": "./src/persistence/*",
         "#models": "./src/models/index.js",
+        "#models/*": "./src/models/*",
         "#controllers/*": "./src/controllers/*"
     },
     "babel": {

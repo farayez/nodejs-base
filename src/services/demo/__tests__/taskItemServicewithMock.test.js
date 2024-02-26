@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals';
-import taskItemMock from '../taskItemMock.js';
+import mockTaskItem from '#models/__mocks__/taskItem.js';
 
 const itemSample1 = {
     name: 'sample 1',
@@ -23,7 +23,7 @@ let modelInstance = {
     ...modelFunctions,
 };
 
-taskItemMock(modelInstance);
+mockTaskItem(modelInstance);
 
 // Import modules after setting up mocks
 const { default: modelsMock } = await import('#models');
