@@ -3,7 +3,7 @@ const config = {
     rootDir: '../src/',
     testRegex: '((\\.|/)(test|spec))\\.[jt]sx?$',
     testEnvironment: 'jest-environment-node',
-    // verbose: true,
+    verbose: true,
     forceExit: true,
     clearMocks: true,
     // resetMocks: true,
