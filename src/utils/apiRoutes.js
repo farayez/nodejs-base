@@ -1,9 +1,9 @@
 /**
  * Controllers (route handlers).
  */
-import getAppHealth from '../controllers/utils/health-check.js';
-import getError from '../controllers/utils/error-test.js';
-import validateToken from '../controllers/utils/validate-token.js';
+import getAppHealth from '../controllers/utils/healthCheck.js';
+import getError from '../controllers/utils/errorTest.js';
+import validateToken from '../controllers/utils/validateToken.js';
 import getItems from '../routes/getItems.js';
 import addItem from '../routes/addItem.js';
 import updateItem from '../routes/updateItem.js';

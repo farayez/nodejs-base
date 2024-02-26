@@ -1,5 +1,6 @@
 export default function validateToken(req, res) {
-    res.send({
+    res.json({
         msg: 'Your access token was successfully validated!',
+        auth: req.auth,
     });
 }
