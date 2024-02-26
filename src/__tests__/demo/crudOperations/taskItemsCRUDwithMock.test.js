@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals';
-import taskItemMock from './TaskItemMock.js';
+import taskItemMock from './taskItemMock.js';
 
 const itemSample1 = {
     name: 'sample 1',
@@ -23,7 +23,7 @@ taskItemMock(modelInstance);
 // Import modules after setting up mocks
 const { default: dbMock } = await import('#models');
 const { getItem, getItems, addItem, udpateItem, deleteItem } = await import(
-    './taskItemsCRUDwithMock.js'
+    './taskItemsCRUD.js'
 );
 
 describe('it performs CRUD operations on mock model successfully', () => {
