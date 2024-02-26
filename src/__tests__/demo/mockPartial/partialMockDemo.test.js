@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
-const originalModule = await import('./foo-bar-baz.js');
+const originalModule = await import('./partialMockDemo.js');
 
-jest.unstable_mockModule('./foo-bar-baz.js', () => {
+jest.unstable_mockModule('./partialMockDemo.js', () => {
     //Mock the default export and named exports 'mockableFoo', 'mockableBar'
     return {
         __esModule: true,
@@ -18,7 +18,15 @@ const {
     mockableFoo,
     bar,
     mockableBar,
-} = await import('./foo-bar-baz.js');
+} = await import('./partialMockDemo.js');
+
+test('should work without mock', () => {
+    expect(originalModule.default()).toBe('baz');
+    expect(originalModule.foo).toBe('foo');
+    expect(originalModule.mockableFoo).toBe('foo');
+    expect(originalModule.bar(3)).toBe('bar 3');
+    expect(originalModule.mockableBar(4)).toBe('bar 4');
+});
 
 test('should do a partial mock', () => {
     const defaultExportResult = defaultExport();

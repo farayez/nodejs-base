@@ -1,5 +1,5 @@
 // const fizz_buzz = require('./index').default;
-import { default as fizz_buzz } from './index.js';
+import { default as fizz_buzz } from './basic.js';
 
 describe('FizzBuzz', () => {
     test('[3] should result in "fizz"', () => {
@@ -15,6 +15,6 @@ describe('FizzBuzz', () => {
     });
 
     test('[1,2,3] should result in "1, 2, fizz"', () => {
-        expect(fizz_buzz([3])).toBe('fizz');
+        expect(fizz_buzz([1, 2, 3])).toBe('1, 2, fizz');
     });
 });
