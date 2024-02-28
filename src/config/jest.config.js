@@ -1,6 +1,6 @@
 /** @type {import('jest').Config} */
 const config = {
-    rootDir: '../src/',
+    rootDir: '../',
     testRegex: '((\\.|/)(test|spec))\\.[jt]sx?$',
     testEnvironment: 'jest-environment-node',
     verbose: true,

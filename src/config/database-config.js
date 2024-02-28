@@ -1,4 +1,9 @@
-import { DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE } from './index.js';
+import {
+    DB_HOST,
+    DB_USERNAME,
+    DB_PASSWORD,
+    DB_DATABASE,
+} from '#config/index.js';
 // import fs from 'fs';
 
 const database_config = {
