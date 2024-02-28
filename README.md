@@ -26,6 +26,15 @@ This repository uses Javascript with [ECMAScript](https://nodejs.org/api/esm.htm
 ## Setup
 - [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)/[Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)/[Duplicate](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository) this repository
 - Go inside the repo directory
+- Create a local database password file that will be shared between the server and postgres database
+    ```bash
+    mkdir db && echo "sample_password" > db/password.txt
+    ```
+- Create a copy of `.env.example` and name it `.env`
+    ```bash
+    cp .env.example .env
+    ```
+- Replace `AUTH0_ISSUER_BASE_URL` in `.env` to the base url received from Auth0
 - Start the container.
     ```bash
     docker compose up --build server
