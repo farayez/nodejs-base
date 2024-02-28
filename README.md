@@ -24,6 +24,7 @@ This repository uses Javascript with [ECMAScript](https://nodejs.org/api/esm.htm
     - IDE [VS Code](https://code.visualstudio.com/)
 
 ## Setup
+
 - [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)/[Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)/[Duplicate](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository) this repository
 - Go inside the repo directory
 - Create a local database password file that will be shared between the server and postgres database
@@ -35,6 +36,8 @@ This repository uses Javascript with [ECMAScript](https://nodejs.org/api/esm.htm
     cp .env.example .env
     ```
 - Replace `AUTH0_ISSUER_BASE_URL` in `.env` to the base url received from Auth0
+
+## Build Image and Start Server
 - Start the container.
     ```bash
     docker compose up --build server
@@ -46,7 +49,7 @@ This repository uses Javascript with [ECMAScript](https://nodejs.org/api/esm.htm
 
 ### Enter a running container
 
-**Note**: If the container is not running, start it following [Build images and start the ecosystem](#build-images-and-start-the-ecosystem).
+**Note**: If the container is not running, start it following [Build Image and Start Server](#build-image-and-start-server).
 
 - For `server` container
     ```bash
@@ -60,7 +63,7 @@ After a `package.json` update the `package-lock.json` will not update automatica
 - [Enter a running container](#enter-a-running-container)
 - Install dependencies
     ```bash
-    npm install
+    npm install --include=dev
     ```
 
 ### After any `.env` update
@@ -68,14 +71,14 @@ After a `package.json` update the `package-lock.json` will not update automatica
 After a `.env` file update the config will not be refreshed in the running app automatically. In order to use the updated config you need restart the container.
 
 - Stop container
-- Start container
-    ```bash
-    docker compose up --build server api
-    ```
+- [Build Image and Start Server](#build-image-and-start-server).
 
 ## Running Migrations
 - [Enter a running container](#enter-a-running-container)
-- `npm run migrate`
+- 
+    ```bash
+    npm run migrate
+    ```
 
 ## Testing
 
@@ -91,6 +94,7 @@ After a `.env` file update the config will not be refreshed in the running app a
 - [Araf Farayez](https://github.com/farayez)
 
 ## References and Contributions
+
 - https://github.com/sahat/hackathon-starter
 - https://docs.docker.com/language/nodejs/
 
