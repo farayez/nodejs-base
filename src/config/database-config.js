@@ -2,14 +2,19 @@ import {
     DB_HOST,
     DB_USERNAME,
     DB_PASSWORD,
+    DB_PASSWORD_FILE,
     DB_DATABASE,
 } from '#config/index.js';
-// import fs from 'fs';
+import fs from 'fs';
 
 const database_config = {
     development: {
         username: DB_USERNAME,
-        password: DB_PASSWORD,
+        password:
+            DB_PASSWORD ??
+            (DB_PASSWORD_FILE
+                ? fs.readFileSync(DB_PASSWORD_FILE, 'utf8')
+                : undefined),
         database: DB_DATABASE,
         host: DB_HOST,
         port: 5432,
