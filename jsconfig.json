@@ -5,7 +5,7 @@
         "baseUrl": "./",
         "paths": {
             "#/*": ["./src/*"],
-            "#config/*": ["./config/*"],
+            "#config/*": ["./src/config/*"],
             "#utils/*": ["./src/utils/*"],
             "#persistence/*": ["./src/persistence/*"],
             "#models/*": ["./src/models/*"],
