@@ -51,7 +51,7 @@ describe('taskItems controller communicates with taskItemService properly', () =
         const res = { json: jest.fn() };
         taskItemService.getItem.mockReturnValueOnce(itemSample2);
 
-        await taskItemsController.getTaskItems({ param: { id: 1 } }, res);
+        await taskItemsController.getTaskItems({ params: { id: 1 } }, res);
 
         expect(taskItemService.getItem.mock.calls.length).toBe(1);
         expect(res.json.mock.calls.length).toBe(1);
@@ -83,7 +83,7 @@ describe('taskItems controller communicates with taskItemService properly', () =
         });
 
         await taskItemsController.updateTaskItem(
-            { param: { id: 1 }, body: itemSample2 },
+            { params: { id: 1 }, body: itemSample2 },
             res,
         );
 
@@ -103,7 +103,7 @@ describe('taskItems controller communicates with taskItemService properly', () =
         const res = { json: jest.fn() };
         taskItemService.deleteItem.mockReturnValueOnce(true);
 
-        await taskItemsController.deleteTaskItem({ param: { id: 1 } }, res);
+        await taskItemsController.deleteTaskItem({ params: { id: 1 } }, res);
 
         expect(taskItemService.deleteItem.mock.calls.length).toBe(1);
         expect(taskItemService.deleteItem.mock.calls[0][0]).toBe(1);

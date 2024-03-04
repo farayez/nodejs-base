@@ -9,8 +9,8 @@ async function addTaskItem(req, res) {
 async function getTaskItems(req, res) {
     let result;
 
-    if (req?.param?.id) {
-        result = await taskItemService.getItem(req.param.id);
+    if (req.params?.id) {
+        result = await taskItemService.getItem(req.params.id);
         res.json(result);
         return;
     }
@@ -20,12 +20,12 @@ async function getTaskItems(req, res) {
 }
 
 async function updateTaskItem(req, res) {
-    let result = await taskItemService.updateItem(req.param.id, req.body);
+    let result = await taskItemService.updateItem(req.params.id, req.body);
     res.json(result);
 }
 
 async function deleteTaskItem(req, res) {
-    let result = await taskItemService.deleteItem(req.param.id);
+    let result = await taskItemService.deleteItem(req.params.id);
     res.json({ status: result });
 }
 

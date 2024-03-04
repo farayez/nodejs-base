@@ -23,8 +23,9 @@ export default function addRoutes(app) {
     app.delete('/api/items/:id', deleteItem);
 
     app.get('/api/task-items', taskItems.getTaskItems);
+    app.get('/api/task-items/:id', taskItems.getTaskItems);
     app.post('/api/task-items', taskItems.addTaskItem);
-    app.put('/api/task-items/:id', taskItems.updateTaskItem);
+    app.patch('/api/task-items/:id', taskItems.updateTaskItem);
     app.delete('/api/task-items/:id', taskItems.deleteTaskItem);
 
     app.use((err, req, res, next) => {
