@@ -1,4 +1,5 @@
 // import { jest } from '@jest/globals';
+import { syncDatabase } from '#utils/tests/setupTestDatabase.js';
 import { default as matchers } from 'jest-extended';
 expect.extend(matchers);
 
@@ -7,6 +8,10 @@ afterEach(() => {
     // jest.clearAllMocks(); // Reset mock usage
     // jest.restoreAllMocks(); // Restore original implementation of mock
     // jest.useRealTimers();
+});
+
+beforeAll(() => {
+    return syncDatabase();
 });
 
 expect.extend({
