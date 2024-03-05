@@ -35,6 +35,10 @@ This repository uses Javascript with [ECMAScript](https://nodejs.org/api/esm.htm
     ```bash
     cp .env.example .env
     ```
+- For Foreign API testing, create a copy of `.env.test.example` and name it `.env.test`
+    ```bash
+    cp .env.test.example .env.test
+    ```
 - Replace `AUTH0_ISSUER_BASE_URL` in `.env` to the base url received from Auth0
 
 ## Build Image and Start Server
