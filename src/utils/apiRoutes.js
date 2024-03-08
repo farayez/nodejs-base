@@ -29,7 +29,7 @@ export default function addRoutes(app) {
     app.delete('/api/task-items/:id', taskItems.deleteTaskItem);
 
     app.use((err, req, res, next) => {
-        console.log('error:', err);
+        // TODO: Log Error
         res.status(err.status || 500).json({ error: err.message });
     });
 }

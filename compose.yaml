@@ -22,7 +22,6 @@ services:
       - ./.env.test:/app/.env.test
       - ./.sequelizerc:/app/.sequelizerc
       - ./storage:/app/storage
-      - ./config:/app/config
   db:
     image: postgres
     restart: always
