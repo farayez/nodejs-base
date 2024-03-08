@@ -1,7 +1,7 @@
 /** @type {import('jest').Config} */
 const config = {
     rootDir: '../',
-    testRegex: '((\\.|/)(test|spec))\\.foreign\\.[jt]sx?$',
+    testRegex: '((\\.|/)foreign\\.(test|spec))\\.[jt]sx?$',
     testEnvironment: 'jest-environment-node',
     verbose: true,
     forceExit: true,
