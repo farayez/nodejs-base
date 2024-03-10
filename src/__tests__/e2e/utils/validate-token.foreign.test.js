@@ -5,9 +5,10 @@ const request = supertest(app);
 
 describe('validate-token endpoints work correctly', function () {
     it('should pass if token is valid', async () => {
+        let token = await auth.accessToken;
         const response = await request
             .get('/api/validate-token')
-            .set('Authorization', `Bearer ${auth.accessToken}`);
+            .set('Authorization', `Bearer ${token}`);
         expect(response.status).toBe(200);
     });
 
