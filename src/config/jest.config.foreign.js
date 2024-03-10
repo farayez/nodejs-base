@@ -9,6 +9,8 @@ const config = {
     // resetMocks: true,
     restoreMocks: true,
     transform: {},
+    detectOpenHandles: true,
+    forceExit: true,
     coverageDirectory: 'storage/coverage',
     setupFilesAfterEnv: ['<rootDir>/utils/tests/setupJest.js'],
 };
