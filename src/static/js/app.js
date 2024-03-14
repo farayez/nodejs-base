@@ -15,7 +15,7 @@ function TodoListCard() {
     const [items, setItems] = React.useState(null);
 
     React.useEffect(() => {
-        fetch('api/items')
+        fetch('api/task-items')
             .then((r) => r.json())
             .then(setItems);
     }, []);
@@ -76,7 +76,7 @@ function AddItemForm({ onNewItem }) {
     const submitNewItem = (e) => {
         e.preventDefault();
         setSubmitting(true);
-        fetch('api/items', {
+        fetch('api/task-items', {
             method: 'POST',
             body: JSON.stringify({ name: newItem }),
             headers: { 'Content-Type': 'application/json' },
@@ -118,8 +118,8 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     const { Container, Row, Col, Button } = ReactBootstrap;
 
     const toggleCompletion = () => {
-        fetch(`api/items/${item.id}`, {
-            method: 'PUT',
+        fetch(`api/task-items/${item.id}`, {
+            method: 'PATCH',
             body: JSON.stringify({
                 name: item.name,
                 completed: !item.completed,
@@ -131,7 +131,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     };
 
     const removeItem = () => {
-        fetch(`api/items/${item.id}`, { method: 'DELETE' }).then(() =>
+        fetch(`api/task-items/${item.id}`, { method: 'DELETE' }).then(() =>
             onItemRemoval(item),
         );
     };
