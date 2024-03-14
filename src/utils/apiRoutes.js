@@ -4,10 +4,6 @@
 import getAppHealth from '../controllers/utils/healthCheck.js';
 import getError from '../controllers/utils/errorTest.js';
 import validateToken from '../controllers/utils/validateToken.js';
-import getItems from '#controllers/demos/itemController/getItems.js';
-import addItem from '#controllers/demos/itemController/addItem.js';
-import updateItem from '#controllers/demos/itemController/updateItem.js';
-import deleteItem from '#controllers/demos/itemController/deleteItem.js';
 
 import taskItems from '#controllers/demos/taskItemController.js';
 
@@ -17,10 +13,6 @@ export default function addRoutes(app) {
     app.get('/api/health-check', getAppHealth);
     app.get('/api/error', getError);
     app.get('/api/validate-token', checkJwt, validateToken);
-    app.get('/api/items', getItems);
-    app.post('/api/items', addItem);
-    app.put('/api/items/:id', updateItem);
-    app.delete('/api/items/:id', deleteItem);
 
     app.get('/api/task-items', taskItems.getTaskItems);
     app.get('/api/task-items/:id', taskItems.getTaskItems);
