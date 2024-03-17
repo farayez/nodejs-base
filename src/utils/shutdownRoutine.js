@@ -1,4 +1,4 @@
-export function gracefulShutdown(signal, server, db) {
+export function gracefulShutdown(signal, server) {
     console.log(`${signal} received. Shutting down gracefully...`);
 
     // server.close(() => {
@@ -12,25 +12,15 @@ export function gracefulShutdown(signal, server, db) {
     // });
     server.close(() => {
         console.log('Server closed.');
-        db.teardown().catch(() => {});
-        console.log('DB closed');
         process.exit(0);
     });
 
     scheduleForceExit();
 }
 
-export function unGracefulShutdown(event, error, server, db) {
+export function unGracefulShutdown(event, error, server) {
     console.error(event, error);
-
-    db.teardown()
-        .catch(() => {})
-        .then(() => {
-            console.log('DB closed');
-            process.exit(1);
-        });
-
-    scheduleForceExit();
+    process.exit(1);
 }
 
 export function scheduleForceExit() {
