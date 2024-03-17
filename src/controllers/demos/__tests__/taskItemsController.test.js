@@ -1,4 +1,5 @@
 import { jest } from '@jest/globals';
+import mockTaskItemService from '#services/demo/__mocks__/taskItemService.js';
 
 const itemSample1 = {
     name: 'sample 1',
@@ -12,15 +13,7 @@ const itemSample2 = {
     completed: true,
 };
 
-jest.unstable_mockModule('#services/demo/taskItemService.js', () => ({
-    default: {
-        getItems: jest.fn(),
-        getItem: jest.fn(),
-        addItem: jest.fn(),
-        updateItem: jest.fn(),
-        deleteItem: jest.fn(),
-    },
-}));
+mockTaskItemService();
 
 // Import modules after setting up mocks
 const { default: taskItemService } = await import(
