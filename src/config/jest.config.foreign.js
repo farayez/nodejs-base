@@ -1,5 +1,3 @@
-process.loadEnvFile('.env.test');
-
 /** @type {import('jest').Config} */
 const config = {
     rootDir: '../',
