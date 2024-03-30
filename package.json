@@ -24,7 +24,7 @@
     "dependencies": {
         "@auth0/nextjs-auth0": "^3.5.0",
         "cors": "^2.8.5",
-        "dotenv": "^16.3.1",
+        "dotenv": "^16.4.5",
         "ejs": "^3.1.9",
         "express": "^4.18.2",
         "express-async-errors": "^3.1.1",
@@ -37,7 +37,6 @@
         "passport-google-oauth": "^2.0.0",
         "pg": "^8.11.2",
         "sequelize": "^6.36.0",
-        "sqlite3": "^5.1.2",
         "uuid": "^9.0.0",
         "wait-port": "^1.0.4"
     },
@@ -53,6 +52,7 @@
         "jest-extended": "^4.0.2",
         "nodemon": "^3.0.1",
         "sequelize-cli": "^6.6.2",
+        "sqlite3": "^5.1.7",
         "supertest": "^6.3.4"
     },
     "imports": {
