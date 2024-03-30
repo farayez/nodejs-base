@@ -6,7 +6,6 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - 3000:3000
       - 3001:3001
       - 9229:9229 # inspect port
     depends_on:
@@ -16,10 +15,6 @@ services:
       - db-password
     volumes:
       - ./:/app
-      # - ./.env:/app/.env
-      # - ./.env.test:/app/.env.test
-      # - ./.sequelizerc:/app/.sequelizerc
-      # - ./storage:/app/storage
       - /app/node_modules
     command: npm run dev
   db:
