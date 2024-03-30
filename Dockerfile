@@ -3,35 +3,15 @@
 ARG NODE_VERSION=21.7.1
 
 FROM node:${NODE_VERSION}-alpine as base
-WORKDIR /app
-ENV APP_ROOT_DIRECTORY=/app
-EXPOSE 3000
 
-FROM base as dev
+ARG APP_ROOT_DIRECTORY=/app
+WORKDIR ${APP_ROOT_DIRECTORY}
+ENV APP_ROOT_DIRECTORY=${APP_ROOT_DIRECTORY}
+
 RUN chown -R node:node /app
-USER node
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --include=dev
-CMD npm run dev
 
-FROM base as prod
-ENV NODE_ENV production
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
-USER node
-COPY . .
-CMD node src/index.js
+COPY package*.json .
 
-FROM base as test
-ENV NODE_ENV test
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --include=dev
-USER node
+RUN npm ci --include=dev
+
 COPY . .
-RUN npm run test

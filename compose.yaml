@@ -2,7 +2,7 @@ services:
   server:
     build:
       context: .
-      target: dev
+      target: base
     environment:
       NODE_ENV: development
     ports:
@@ -15,13 +15,13 @@ services:
     secrets:
       - db-password
     volumes:
-      - ./src:/app/src
-      - ./package.json:/app/package.json
-      - ./package-lock.json:/app/package-lock.json
-      - ./.env:/app/.env
-      - ./.env.test:/app/.env.test
-      - ./.sequelizerc:/app/.sequelizerc
-      - ./storage:/app/storage
+      - ./:/app
+      # - ./.env:/app/.env
+      # - ./.env.test:/app/.env.test
+      # - ./.sequelizerc:/app/.sequelizerc
+      # - ./storage:/app/storage
+      - /app/node_modules
+    command: npm run dev
   db:
     image: postgres
     restart: always
