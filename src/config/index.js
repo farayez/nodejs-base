@@ -25,7 +25,9 @@ export const AUTH0_SCOPE = process.env.AUTH0_SCOPE;
 
 /** Database */
 export const DB_ENGINE = process.env.DB_ENGINE;
+export const DB_STORAGE = process.env.DB_STORAGE;
 export const DB_HOST = process.env.DB_HOST;
+export const DB_PORT = process.env.DB_PORT;
 export const DB_HOST_FILE = undefined;
 export const DB_USERNAME = process.env.DB_USERNAME;
 export const DB_USERNAME_FILE = process.env.DB_USERNAM_FILEE;
